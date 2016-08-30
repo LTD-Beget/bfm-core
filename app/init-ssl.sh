@@ -1,7 +1,7 @@
 #!/usr/bin/with-contenv bash
 set -e
 
-cd /app/ssl
+cd /app/nginx/certs
 
 if [ -s sprutio.key -a -s sprutio.crt ]; then
     exit 0
