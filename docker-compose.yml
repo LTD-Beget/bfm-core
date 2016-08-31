@@ -25,7 +25,7 @@ rpc:
     - "./rpc.env"
 
 nginx:
-  image: nginx:1.9
+  image: nginx:mainline-alpine
   links:
     - app:fm-app
   volumes_from:
