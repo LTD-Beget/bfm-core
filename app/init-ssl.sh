@@ -10,5 +10,5 @@ fi
 openssl req -nodes -newkey rsa:4096 -keyout sprutio.key -out sprutio.csr -subj "/C=RU/O=Beget/CN=sprut.io"
 openssl x509 -req -days 365 -in sprutio.csr -signkey sprutio.key -out sprutio.crt
 
-chmod 600 ../certs
+chmod 700 ../certs
 chmod 400 sprutio.key
