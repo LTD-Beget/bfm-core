@@ -20,7 +20,6 @@ docker login --email=$DOCKER_HUB_EMAIL --username=$DOCKER_HUB_USERNAME --passwor
 docker push beget/sprutio-cron
 docker push beget/sprutio-rpc
 docker push beget/sprutio-app
-docker push beget/sprutio-nginx
 docker push beget/sprutio-frontend
 
 # EOF
