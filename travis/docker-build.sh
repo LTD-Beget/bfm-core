@@ -22,6 +22,9 @@ docker build -t beget/sprutio-app -f app/Dockerfile app/
 # nginx image
 docker build -t beget/sprutio-nginx -f Dockerfile.nginx ./
 
+# wetty image
+docker build -t rndviktor/wetty -f wetty/Dockerfile wetty/
+
 # frontend
 docker build -t beget/sprutio-bower -f Dockerfile.bower ./
 docker run -v $PWD/app/public:/app -w /app beget/sprutio-bower bower install --allow-root

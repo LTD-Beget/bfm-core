@@ -49,4 +49,9 @@ cron:
 redis:
   image: redis:3.0
 
+wetty:
+  image: rndviktor/wetty
+  ports:
+    - "3000:3000"
+
 # EOF
