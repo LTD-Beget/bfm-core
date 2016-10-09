@@ -5,6 +5,7 @@ from handlers.actions.main import CheckStatusHandler
 from handlers.actions.main import CancelOperationHandler
 from handlers.actions.main import LoadSettingsHandler
 from handlers.actions.main import SaveSettingsHandler
+from handlers.actions.main import TerminalHandler
 # from handlers.actions.main import LogoutHandler
 from handlers.actions.files import ListFilesHandler
 from handlers.actions.files import RemoveFilesHandler
@@ -62,6 +63,7 @@ HANDLERS = [
     (r"/actions/main/cancel_operation", CancelOperationHandler.CancelOperationHandler),
     (r"/actions/main/save_settings", SaveSettingsHandler.SaveSettingsHandler),
     (r"/actions/main/logout", LogoutHandler.LogoutHandler),
+    (r"/actions/main/terminal", TerminalHandler.TerminalHandler),
     (r"/actions/files/list", ListFilesHandler.ListFilesHandler),
     (r"/actions/files/remove", RemoveFilesHandler.RemoveFilesHandler),
     (r"/actions/files/chmod", ChmodFilesHandler.ChmodFilesHandler),
