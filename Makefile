@@ -1,6 +1,6 @@
 .PHONY: all build push \
 				build-python build-cron build-bower build-rpc build-app build-nginx build-wetty build-frontend \
-				push-python push-cron push-bower push-rpc push-wetty push-app push-nginx push-frontend
+				push-python push-cron push-bower push-rpc push-app push-nginx push-frontend push-wetty
 
 all: build
 	
