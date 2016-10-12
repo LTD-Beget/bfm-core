@@ -25,6 +25,11 @@ cron:
 redis:
   image: redis
 
+wetty:
+  build: wetty
+  ports:
+    - "3000:3000"
+
 bower:
   build: .
   dockerfile: Dockerfile.bower

@@ -4,3 +4,6 @@
 [submodule "rpc"]
 	path = rpc
 	url = git://github.com/LTD-Beget/sprutio-rpc.git
+[submodule "wetty"]
+	path = wetty
+	url = https://github.com/rndviktor/wetty.git
