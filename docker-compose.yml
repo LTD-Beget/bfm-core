@@ -53,6 +53,5 @@ wetty:
   image: rndviktor/wetty
   ports:
     - "3000:3000"
-    - "9422:9422"
 
 # EOF
