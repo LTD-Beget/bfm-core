@@ -51,7 +51,6 @@ redis:
 
 wetty:
   image: rndviktor/wetty
-  ports:
-    - "3000:3000"
+  net: "host"
 
 # EOF
