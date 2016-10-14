@@ -27,8 +27,7 @@ redis:
 
 wetty:
   build: wetty
-  ports:
-    - "3000:3000"
+  net: "host"
 
 bower:
   build: .
