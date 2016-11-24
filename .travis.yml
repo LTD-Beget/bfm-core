@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+script:
+  - ./travis/docker-build.sh
+
+after_success:
+  - ./travis/docker-push.sh
+
