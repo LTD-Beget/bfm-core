@@ -25,6 +25,10 @@ cron:
 redis:
   image: redis
 
+wetty:
+  build: wetty
+  net: "host"
+
 bower:
   build: .
   dockerfile: Dockerfile.bower

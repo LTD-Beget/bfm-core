@@ -49,4 +49,8 @@ cron:
 redis:
   image: redis:3.0
 
+wetty:
+  image: rndviktor/wetty
+  net: "host"
+
 # EOF

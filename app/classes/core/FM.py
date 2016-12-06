@@ -115,6 +115,8 @@ class Actions(object):
     CREATE_ARCHIVE = 'actions.archive.create.CreateArchive'
     EXTRACT_ARCHIVE = 'actions.archive.extract.ExtractArchive'
 
+    OPEN_TERMINAL = 'actions.main.open_terminal.OpenTerminal'
+
 
 # Aliases for FM actions
 class Action(object):
@@ -172,6 +174,8 @@ class Action(object):
 
     HELP = 'FM.action.Help'
     LOGOUT = 'FM.action.Logout'
+
+    TERMINAL = 'FM.action.Terminal'
 
 
 class ActionsProvider:
