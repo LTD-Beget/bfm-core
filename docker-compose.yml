@@ -6,7 +6,7 @@ app:
   volumes_from:
     - frontend
   volumes:
-    - "./ssl:/app/ssl:rw"
+    - "./nginx/certs:/app/nginx/certs:rw"
     - "./logs:/var/log/fm:rw"
   env_file:
     - "./app.env"
@@ -25,14 +25,14 @@ rpc:
     - "./rpc.env"
 
 nginx:
-  image: beget/sprutio-nginx
+  image: nginx:mainline-alpine
   links:
     - app:fm-app
   volumes_from:
     - cron
     - frontend
   volumes:
-    - "./ssl:/app/ssl:ro"
+    - "./nginx:/etc/nginx:ro"
     - "./logs:/var/log/nginx:rw"
   ports:
     - "127.0.0.1:9080:80"
