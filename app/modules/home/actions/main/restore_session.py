@@ -63,4 +63,16 @@ class RestoreSession(FM.BaseAction):
         if 'type' not in session['Left']:
             session['Left']['type'] = FM.Modules.HOME
 
+        if 'path' not in session['Right']:
+            session['Right']['type'] = FM.Modules.HOME
+
+        if 'path' not in session['Left']:
+            session['Left']['type'] = FM.Modules.HOME
+
+        if 'server_id' not in session['Right']:
+            session['Right']['type'] = FM.Modules.HOME
+
+        if 'server_id' not in session['Left']:
+            session['Left']['type'] = FM.Modules.HOME
+
         return session
