@@ -13,20 +13,20 @@ class RestoreSession(FM.BaseAction):
         if session is not None:
             same = False
 
-            same_path = (session['Right']['path'] == session['Left']['path'])
-            same_type = (session['Right']['type'] == session['Left']['type'])
+            same_path = (session['Right'].get('path') == session['Left'].get('path'))
+            same_type = (session['Right'].get('type') == session['Left'].get('type'))
 
             if same_type and same_path:
-                if session['Left']['type'] == FM.Modules.WEBDAV:
-                    if session['Left']['server_id'] == session['Left']['server_id']:
+                if session['Left'].get('type') == FM.Modules.WEBDAV:
+                    if session['Left'].get('server_id') == session['Left'].get('server_id'):
                         same = True
-                if session['Left']['type'] == FM.Modules.SFTP:
-                    if session['Left']['server_id'] == session['Left']['server_id']:
+                if session['Left'].get('type') == FM.Modules.SFTP:
+                    if session['Left'].get('server_id') == session['Left'].get('server_id'):
                         same = True
-                if session['Left']['type'] == FM.Modules.FTP:
-                    if session['Left']['server_id'] == session['Left']['server_id']:
+                if session['Left'].get('type') == FM.Modules.FTP:
+                    if session['Left'].get('server_id') == session['Left'].get('server_id'):
                         same = True
-                if session['Left']['type'] == FM.Modules.HOME:
+                if session['Left'].get('type') == FM.Modules.HOME:
                     same = True
 
             message = {
