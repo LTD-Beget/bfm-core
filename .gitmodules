@@ -1,6 +1,6 @@
 [submodule "app/public/fm"]
 	path = app/public/fm
-	url = git://github.com/LTD-Beget/sprutio-frontend.git
+	url = git://github.com/shadowlmd/sprutio-frontend.git
 [submodule "rpc"]
 	path = rpc
-	url = git://github.com/LTD-Beget/sprutio-rpc.git
+	url = git://github.com/shadowlmd/sprutio-rpc.git
