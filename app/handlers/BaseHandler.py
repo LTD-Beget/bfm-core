@@ -10,6 +10,7 @@ import tornado.web
 from config import server
 from config.settings import DEFAULT_LOCALE, DEFAULT_LANGUAGE, DEFAULT_COOKIE_TOKEN_NAME
 from core import FM
+from cryptography.fernet import Fernet
 
 
 class BaseHandler(tornado.web.RequestHandler):
@@ -174,8 +175,9 @@ class BaseHandler(tornado.web.RequestHandler):
 
         redis = self.redis.get(threading.currentThread())
         secure_cookie = self.get_secure_cookie("token")
+        pw_crypt = self.get_secure_cookie("crypto")
 
-        if secure_cookie is None:
+        if secure_cookie is None or pw_crypt is None:
             raise tornado.web.HTTPError(403, "Authentication Failed")
 
         auth_key = bytes.decode(secure_cookie)
@@ -187,7 +189,8 @@ class BaseHandler(tornado.web.RequestHandler):
         redis.expire(auth_key, 86400)
         params = json.loads(params)
 
-        return params['password']
+        f = Fernet(pw_crypt)
+        return f.decrypt(params['password'].encode()).decode()
 
     def get_user_locale(self):
         try:
