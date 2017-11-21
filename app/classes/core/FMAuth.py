@@ -6,6 +6,7 @@ from classes.core import FM
 from config.server import COOKIE_EXPIRE
 from config.settings import DEFAULT_COOKIE_TOKEN_NAME
 from helpers import random_hash
+from cryptography.fernet import Fernet
 
 
 class FMAuth:
@@ -21,13 +22,16 @@ class FMAuth:
                 redis = request.redis.get(threading.currentThread())
                 """:type : connectors.RedisConnector.RedisConnector"""
                 token = 'FM::session::' + username + '::' + random_hash()
+                pw_crypt = Fernet.generate_key()
+                f = Fernet(pw_crypt)
                 params = {
                     "server": "localhost",
                     "user": username,
-                    "password": password
+                    "password": f.encrypt(password.encode()).decode()
                 }
                 redis.set(token, json.dumps(params))
                 request.set_secure_cookie(DEFAULT_COOKIE_TOKEN_NAME, token, COOKIE_EXPIRE)
+                request.set_secure_cookie('crypto', pw_crypt.decode(), COOKIE_EXPIRE)
                 return token
             except Exception as e:
                 request.application.logger.error(
@@ -66,6 +70,7 @@ class FMAuth:
             redis.delete(token)
 
             request.clear_cookie("token")
+            request.clear_cookie("crypto")
             request.clear_cookie("locale")
         except Exception as e:
             request.application.logger.error(
